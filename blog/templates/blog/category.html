@@ -8,18 +8,18 @@
 </head>
 <body>
     <div>
-        <a href="/">Главная страница</a>
+        <a href="{% url 'home' %}">Главная страница</a>
     </div>
     <div><h1>{{ title }}</h1></div>
     <div>
         {% for note in categories %}
-            <a href="/category/{{ note.pk }}" >{{ note.title }}</a>
+            <a href="{% url 'category' note.pk %}" >{{ note.title }}</a>
         {% endfor %}
     </div>
     <div>
         {% for note in blog %}
             <div><h3>{{ note.title }}</h3></div>
-            <div><b>Категория: {{ note.category }}</b></div>
+            <div><a href="{% url 'category' note.category.pk %}">Категория: {{ note.category }}</a></div>
             <div><p>{{ note.text }}</p></div>
             <div><i>{{ note.created_ad|date:"d-m-Y H:i" }}</i></div>
         {% endfor %}
