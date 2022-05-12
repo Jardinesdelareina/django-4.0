@@ -1,0 +1,10 @@
+<nav>
+    <div>
+        <a href="{% url 'home' %}">Главная страница</a>
+    </div>
+    <div>
+        {% for note in categories %}
+        <a href="{% url 'category' note.pk %}">{{ note.title }}</a>
+        {% endfor %}
+    </div>
+</nav>
