@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 
 # Создавайте свои модели здесь.
@@ -11,6 +12,9 @@ class Blog(models.Model):
     is_published = models.BooleanField('Опубликовано', default=True)
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
+    def get_absolute_url(self):
+        return reverse('view_note', kwargs={'note_id': self.pk})
+
     def __str__(self):
         return self.title
 
@@ -22,6 +26,9 @@ class Blog(models.Model):
 
 class Category(models.Model):
     title = models.CharField('Наименование категории', max_length=50, db_index=True)
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
 
     def __str__(self):
         return self.title

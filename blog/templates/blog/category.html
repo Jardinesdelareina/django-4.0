@@ -3,13 +3,6 @@
 {% block title %}{{ category.title }} :: {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div>
-        {% for note in blog %}
-            <div><h3>{{ note.title }}</h3></div>
-            <div>Категория: <a href="{% url 'category' note.category.pk %}">{{ note.category }}</a></div>
-            <div><p>{{ note.text }}</p></div>
-            <div><i>{{ note.created_ad|date:"d-m-Y H:i" }}</i></div>
-            <hr/>
-        {% endfor %}
-    </div>
+    <h1>{{ category.title }}</h1>
+    <div>{% include 'blog/include/list_notes.html' %}</div>
 {% endblock %}

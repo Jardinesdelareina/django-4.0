@@ -1,7 +1,7 @@
 from datetime import date
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from .models import Blog, Category
+
 # Создавайте свои представления здесь.
 
 
@@ -22,3 +22,11 @@ def get_category(request, category_id):
         'category': category,
     }
     return render(request, 'blog/category.html', context)
+
+
+def get_note(request, note_id):
+    view_note = get_object_or_404(Blog, pk=note_id)
+    context = {
+        'view_note': view_note,
+    }
+    return render(request, 'blog/note.html', context)

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ view_note.title }}{% endblock %}
+
+{% block content %}
+    <div><h3>{{ view_note.title }}</h3></div>
+    <div>
+        {% if note.image %}
+            <img src="{{ note.image.url }}" alt="" width="200">
+        {% endif %}
+    </div>
+    <div>Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category }}</a></div>
+    <div><p>{{ view_note.text }}</p></div>
+    <div><i>{{ view_note.created_ad|date:"d-m-Y H:i" }}</i></div>
+{% endblock %}
