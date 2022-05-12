@@ -1,10 +1,15 @@
-<nav>
-    <div>
-        <a href="{% url 'home' %}">Главная страница</a>
-    </div>
-    <div>
-        {% for note in categories %}
+{% load blog_tags %}
+
+<div>
+    <a href="{% url 'home' %}">Главная страница</a>
+</div>
+<div>
+    {% get_list_categories as categories %}
+    {% for note in categories %}
         <a href="{% url 'category' note.pk %}">{{ note.title }}</a>
-        {% endfor %}
-    </div>
-</nav>
+    {% endfor %}
+</div>
+
+<br>
+
+{% show_categories %}

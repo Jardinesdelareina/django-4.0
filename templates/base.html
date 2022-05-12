@@ -7,10 +7,14 @@
     <title>{% block title %}Backend на Python{% endblock %}</title>
 </head>
 <body>
-    {% include 'include/_nav.html' %}
+    <nav>
+        {% include 'include/_nav.html' %}
+    </nav>
     <content>
         {% block content %}{% endblock %}
     </content>
-    {% include 'include/_footer.html' %}
+    <footer>
+        {% include 'include/_footer.html' %}
+    </footer>
 </body>
 </html>
