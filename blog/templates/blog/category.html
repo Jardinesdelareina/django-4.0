@@ -3,6 +3,8 @@
 {% block title %}{{ category.title }} :: {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>{{ category.title }}</h1>
-    <div>{% include 'blog/include/list_notes.html' %}</div>
+    <div class="blog__page">
+        <div class="blog__title">{{ category.title }}</div>
+        <div class="blog__note">{% include 'blog/include/list_notes.html' %}</div>
+    </div>
 {% endblock %}

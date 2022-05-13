@@ -1,5 +1,6 @@
-<div>
+<div class="list_categories">
     {% for note in categories %}
         <a href="{{ note.get_absolute_url }}">{{ note.title }}</a>
     {% endfor %}
 </div>
+

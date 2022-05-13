@@ -3,6 +3,8 @@
 {% block title %}{{ title }} :: {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    <div>{% include 'blog/include/list_notes.html' %}</div>
+    <div class="blog__page">
+        <div class="blog__title">{{ title }}</div>
+        <div class="blog__note">{% include 'blog/include/list_notes.html' %}</div>
+    </div>
 {% endblock %}

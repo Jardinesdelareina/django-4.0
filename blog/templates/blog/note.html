@@ -3,13 +3,17 @@
 {% block title %}{{ view_note.title }}{% endblock %}
 
 {% block content %}
-    <div><h3>{{ view_note.title }}</h3></div>
-    <div>
-        {% if note.image %}
-            <img src="{{ note.image.url }}" alt="" width="200">
-        {% endif %}
+    <div class="note">
+        <div class="note__image">
+            {% if view_note.image %}
+            <img src="{{ view_note.image.url }}" alt="" width="200">
+            {% endif %}
+        </div>
+        <div class="note__content">
+            <div class="note__title">{{ view_note.title }}</div>
+            <div class="note__category">Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category}}</a></div>
+            <div class="note__text">{{ view_note.text }}</div>
+            <div class="note__date">{{ view_note.created_ad|date:"d-m-Y H:i" }}</div>
+        </div>
     </div>
-    <div>Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category }}</a></div>
-    <div><p>{{ view_note.text }}</p></div>
-    <div><i>{{ view_note.created_ad|date:"d-m-Y H:i" }}</i></div>
 {% endblock %}

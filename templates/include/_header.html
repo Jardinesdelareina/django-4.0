@@ -1,7 +1,8 @@
 {% load blog_tags %}
 
-<div>
+<div class="header__home">
     <a href="{% url 'home' %}">Главная страница</a>
 </div>
-
-{% show_categories %}
+<div class="header__categories">
+    {% show_categories %}
+</div>

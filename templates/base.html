@@ -1,20 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/base.css' %}">
     <title>{% block title %}Backend на Python{% endblock %}</title>
 </head>
 <body>
-    <nav>
-        {% include 'include/_nav.html' %}
-    </nav>
-    <content>
-        {% block content %}{% endblock %}
-    </content>
-    <footer>
-        {% include 'include/_footer.html' %}
-    </footer>
+    <div class="wrapper">
+        <header>
+            {% include 'include/_header.html' %}
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            {% include 'include/_footer.html' %}
+        </footer>
+    </div>
 </body>
 </html>
