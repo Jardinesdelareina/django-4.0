@@ -1,6 +1,6 @@
-from datetime import date
 from django.shortcuts import render, get_object_or_404
 from .models import Blog, Category
+from .forms import BlogForm
 
 # Создавайте свои представления здесь.
 
@@ -30,3 +30,15 @@ def get_note(request, note_id):
         'view_note': view_note,
     }
     return render(request, 'blog/note.html', context)
+
+
+def add_note(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = BlogForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'blog/add_note.html', context)

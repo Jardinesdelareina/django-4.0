@@ -2,18 +2,20 @@
 
 {% block title %}{{ view_note.title }}{% endblock %}
 
+{% block sidebar %}{% include 'include/_sidebar.html' %}{% endblock %}
+
 {% block content %}
-    <div class="note">
-        <div class="note__image">
-            {% if view_note.image %}
+<div class="note">
+    <div class="note__image">
+        {% if view_note.image %}
             <img src="{{ view_note.image.url }}" alt="" width="200">
-            {% endif %}
-        </div>
-        <div class="note__content">
-            <div class="note__title">{{ view_note.title }}</div>
-            <div class="note__category">Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category}}</a></div>
-            <div class="note__text">{{ view_note.text }}</div>
-            <div class="note__date">{{ view_note.created_ad|date:"d-m-Y H:i" }}</div>
-        </div>
+        {% endif %}
     </div>
+    <div class="note__content">
+        <div class="note__title">{{ view_note.title }}</div>
+        <div class="note__category">Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category}}</a></div>
+        <div class="note__text">{{ view_note.text }}</div>
+        <div class="note__date">{{ view_note.created_ad|date:"d-m-Y H:i" }}</div>
+    </div>
+</div>
 {% endblock %}

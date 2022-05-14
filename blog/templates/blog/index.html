@@ -2,9 +2,9 @@
 
 {% block title %}{{ title }} :: {{ block.super }}{% endblock %}
 
+{% block sidebar %}{% include 'include/_sidebar.html' %}{% endblock %}
+
 {% block content %}
-    <div class="blog__page">
-        <div class="blog__title">{{ title }}</div>
-        <div class="blog__note">{% include 'blog/include/list_notes.html' %}</div>
-    </div>
+<h1>{{ title }}</h1>
+<div class="content__container">{% include 'blog/include/list_notes.html' %}</div>
 {% endblock %}

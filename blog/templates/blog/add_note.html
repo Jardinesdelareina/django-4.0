@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавить запись :: {{ block.super }}{% endblock %}
+
+{% block sidebar %}{% include 'include/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+    <form action="{% url 'add_note' %}" method="post">
+        {% csrf_token %}
+        <div class="form__title">Добавить запись</div>
+        <div class="form__input"><p>Заголовок</p><div>{{ form.title }}</div></div>
+        <div class="form__error">{{ form.title.errors }}</div>
+        <div class="form__textarea"><p>Содержание</p><div>{{ form.text }}</div></div>
+        <div class="form__error">{{ form.title.errors }}</div>
+        <div class="form__checkbox"><p>Опубликовать </p><div class="checkbox">{{ form.is_published }}</div></div>
+        <div class="form__select"><p>Категория</p><div>{{ form.category }}</div></div>
+        <button class="button" type="submit">Добавить запись</button>
+    </form>
+{% endblock %}
