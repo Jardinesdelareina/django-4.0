@@ -2,7 +2,9 @@ from django import forms
 from .models import Category, Blog
 from django.forms import ModelForm, TextInput, Textarea, Select
 
-class BlogForm(forms.Form):
+# Форма не связана с моделью
+
+''' class BlogForm(forms.Form):
     
     title = forms.CharField(
         max_length=50, 
@@ -36,3 +38,25 @@ class BlogForm(forms.Form):
             'class': 'select'
         })
     )
+ '''
+
+# Форма связана с моделью
+
+class BlogForm(ModelForm):
+    class Meta:
+        model = Blog
+        fields = ['title', 'text', 'is_published', 'category']
+
+        widgets = {
+            'title': forms.TextInput(attrs={
+                'class': 'input',
+                'placeholder': 'Заголовок'
+            }),
+            'text': forms.Textarea(attrs={
+                'class': 'textarea',
+                'placeholder': 'Содержание'
+            }),
+            'category': forms.Select(attrs={
+                'class': 'select'
+            }),
+        }

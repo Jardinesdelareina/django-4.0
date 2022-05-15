@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog, Category
 from .forms import BlogForm
 
@@ -34,7 +34,11 @@ def get_note(request, note_id):
 
 def add_note(request):
     if request.method == 'POST':
-        pass
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            # note = Blog.objects.create(**form.cleaned_data)   # Форма не связана с моделью
+            note = form.save()  # Форма связана с моделью
+            return redirect(note)
     else:
         form = BlogForm()
 

@@ -39,8 +39,9 @@ $color__purple: rgb(128, 0, 128);
 }
 
 %input {
+    height: 50px;
     border-radius: 7px;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px;
     margin: 4px;
     color: rgb(128, 128, 128);
@@ -61,7 +62,7 @@ $color__purple: rgb(128, 0, 128);
 }
 
 %textarea {
-    min-height: 100px;
+    height: 200px;
     border-radius: 10px;
     color: rgb(128, 128, 128);
     padding: 15px;
@@ -159,11 +160,11 @@ html, body {
             padding: 10px;
         }
         .note__category {
-            font-size: 20px;
+            font-size: 15px;
             color: gray;
         }
         .note__text {
-            font-size: 18px;
+            font-size: 20px;
             padding: 10px;
         }
         .note__date {
@@ -221,6 +222,7 @@ form {
     .form__select {
         display: flex;
         align-items: center;
+        padding: 10px;
         .select {
             margin-left: 10px;
         } 

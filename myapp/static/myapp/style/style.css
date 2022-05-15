@@ -116,8 +116,9 @@ form .button:active {
 }
 
 form .form__input .input {
+  height: 50px;
   border-radius: 7px;
-  font-size: 16px;
+  font-size: 20px;
   padding: 10px;
   margin: 4px;
   color: gray;
@@ -156,7 +157,7 @@ form .form__input .input:focus::placeholder {
 }
 
 form .form__textarea .textarea {
-  min-height: 100px;
+  height: 200px;
   border-radius: 10px;
   color: gray;
   padding: 15px;
@@ -317,12 +318,12 @@ html, body {
 }
 
 .note .note__content .note__category {
-  font-size: 20px;
+  font-size: 15px;
   color: gray;
 }
 
 .note .note__content .note__text {
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
 }
 
@@ -413,6 +414,7 @@ form .form__select {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 10px;
 }
 
 form .form__select .select {

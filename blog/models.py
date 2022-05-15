@@ -10,7 +10,7 @@ class Blog(models.Model):
     updated_ad = models.DateTimeField('Обновлено', auto_now=True)
     image = models.ImageField('Изображение', upload_to='image/%Y/%m/%d', blank=True)
     is_published = models.BooleanField('Опубликовано', default=True)
-    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, null=1)
 
     def get_absolute_url(self):
         return reverse('view_note', kwargs={'note_id': self.pk})
