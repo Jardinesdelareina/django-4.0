@@ -1,6 +1,8 @@
 from django import forms
 from .models import Category, Blog
 from django.forms import ModelForm, TextInput, Textarea, Select
+import re
+from django.core.exceptions import ValidationError
 
 # Форма не связана с моделью
 
@@ -60,3 +62,17 @@ class BlogForm(ModelForm):
                 'class': 'select'
             }),
         }
+
+    # Валидатор title
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if re.match(r'\d', title):
+            raise ValidationError('Заголовок не должен начинаться с цифры')
+        return title
+
+    # Валидатор text
+    def clean_text(self):
+        text = self.cleaned_data['text']
+        if re.match(r'\d', text):
+            raise ValidationError('Содержание записи не должно начинаться с цифры')
+        return text

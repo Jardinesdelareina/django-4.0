@@ -11,7 +11,7 @@
         <div class="form__input"><p>Заголовок</p><div>{{ form.title }}</div></div>
         <div class="form__error">{{ form.title.errors }}</div>
         <div class="form__textarea"><p>Содержание</p><div>{{ form.text }}</div></div>
-        <div class="form__error">{{ form.title.errors }}</div>
+        <div class="form__error">{{ form.text.errors }}</div>
         <div class="form__checkbox"><p>Опубликовать </p><div class="checkbox">{{ form.is_published }}</div></div>
         <div class="form__select"><p>Категория</p><div>{{ form.category }}</div></div>
         <button class="button" type="submit">Добавить запись</button>

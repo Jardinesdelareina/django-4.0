@@ -122,7 +122,6 @@ form .form__input .input {
   padding: 10px;
   margin: 4px;
   color: gray;
-  font-size: 14px;
   border-bottom: 2px solid #00acee;
   -webkit-box-shadow: 0 0 10px gray;
           box-shadow: 0 0 10px gray;
@@ -354,6 +353,12 @@ form {
   color: gray;
 }
 
+form .form__error {
+  color: brown;
+  padding: 5px;
+  font-size: 15px;
+}
+
 form p {
   text-align: center;
 }
@@ -401,6 +406,7 @@ form .form__checkbox {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5px;
 }
 
 form .form__checkbox .checkbox {
