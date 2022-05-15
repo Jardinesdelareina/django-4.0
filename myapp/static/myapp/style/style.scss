@@ -111,8 +111,6 @@ html, body {
                 padding: 10px;
                 .add {
                     font-weight: 700;
-                    box-shadow: 0 0 3px gray;
-                    border-radius: 5px;
                 }
             }
             span {
@@ -236,4 +234,3 @@ form {
         @extend %button
     }
 }
-

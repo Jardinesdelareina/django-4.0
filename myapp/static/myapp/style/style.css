@@ -245,9 +245,6 @@ html, body {
 
 .wrapper main nav div .add {
   font-weight: 700;
-  -webkit-box-shadow: 0 0 3px gray;
-          box-shadow: 0 0 3px gray;
-  border-radius: 5px;
 }
 
 .wrapper main nav span {

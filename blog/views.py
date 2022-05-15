@@ -1,8 +1,8 @@
 from msilib.schema import ListView
-from django.shortcuts import render, redirect, get_object_or_404
 from .models import Blog, Category
 from .forms import BlogForm
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Создавайте свои представления здесь.
 
@@ -45,18 +45,9 @@ class BlogDetailView(DetailView):
     context_object_name = 'view_note'
 
 
-
-def add_note(request):
-    if request.method == 'POST':
-        form = BlogForm(request.POST)
-        if form.is_valid():
-            # note = Blog.objects.create(**form.cleaned_data)   # Форма не связана с моделью
-            note = form.save()  # Форма связана с моделью
-            return redirect(note)
-    else:
-        form = BlogForm()
-
-    context = {
-        'form': form
-    }
-    return render(request, 'blog/add_note.html', context)
+class BlogCreateView(CreateView):
+    model = Blog
+    form_class = BlogForm
+    template_name = 'blog/add_note.html'
+    success_url = reverse_lazy('home')   # Выполняет функцию redirect
+    
