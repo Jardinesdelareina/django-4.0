@@ -13,7 +13,7 @@ class Blog(models.Model):
     category = models.ForeignKey('Category', on_delete=models.PROTECT, null=1)
 
     def get_absolute_url(self):
-        return reverse('view_note', kwargs={'note_id': self.pk})
+        return reverse('view_note', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
