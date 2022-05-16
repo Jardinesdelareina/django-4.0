@@ -3,7 +3,7 @@ from .models import Blog, Category
 # Зарегистрируйте свои модели здесь.
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('id', 'category', 'title', 'created_ad', 'updated_ad', 'is_published')
+    list_display = ('id', 'category', 'title', 'created_at', 'updated_at', 'is_published')
     list_display_links = ('id', 'title')
     list_editable = ('is_published',)
     list_filter = ('category', 'is_published')

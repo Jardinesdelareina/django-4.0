@@ -15,7 +15,7 @@
         <div class="note__title">{{ view_note.title }}</div>
         <div class="note__category">Категория: <a href="{{ view_note.category.get_absolute_url }}">{{ view_note.category}}</a></div>
         <div class="note__text">{{ view_note.text }}</div>
-        <div class="note__date">{{ view_note.created_ad|date:"d-m-Y H:i" }}</div>
+        <div class="note__date">{{ view_note.created_at|date:"d-m-Y H:i" }}</div>
     </div>
 </div>
 {% endblock %}
