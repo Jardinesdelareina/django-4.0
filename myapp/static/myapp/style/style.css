@@ -240,15 +240,38 @@ html, body {
 }
 
 .wrapper main nav div {
+  padding: 5px;
+}
+
+.wrapper main nav div .sidebar__add {
+  font-weight: 700;
+  border-bottom: 2px solid purple;
   padding: 10px;
 }
 
-.wrapper main nav div .add {
-  font-weight: 700;
+.wrapper main nav div .sidebar__categories span {
+  font-size: 20px;
 }
 
-.wrapper main nav span {
-  font-size: 20px;
+.wrapper main nav div .sidebar__categories .categories__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+.wrapper main nav div .sidebar__categories .categories__list .categories__notes {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: purple;
+  border-radius: 10px;
 }
 
 .wrapper main content {

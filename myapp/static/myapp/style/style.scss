@@ -108,13 +108,32 @@ html, body {
             font-size: 20px;
             box-shadow: 0 0 5px gray;
             div {
-                padding: 10px;
-                .add {
+                padding: 5px;
+                .sidebar__add {
                     font-weight: 700;
+                    border-bottom: 2px solid $color__purple;
+                    padding: 10px;
                 }
-            }
-            span {
-                font-size: 20px;
+                .sidebar__categories {
+                    span {
+                        font-size: 20px;
+                    }
+                    .categories__list {
+                        display: flex;
+                        justify-content: space-between;
+                        border: 1px solid gray;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        font-size: 15px;
+                        .categories__notes {
+                            color: white;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            background-color: $color__purple;
+                            border-radius: 10px;
+                        }
+                    }
+                }
             }
         }
         content {

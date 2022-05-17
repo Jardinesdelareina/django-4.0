@@ -1,3 +1,6 @@
 {% for item in categories %}
-<div><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+<div class="categories__list">
+    <div class="categories__title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></div>
+    <div class="categories__notes">{{ item.notes }}</div>
+</div>
 {% endfor %}

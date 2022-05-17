@@ -1,7 +1,11 @@
 {% load blog_tags %}
 
-<span>Категории</span>
 <div>
-    <div class="add"><a href="{% url 'add_note' %}">Добавить запись</a></div>
-    {% show_categories %}
+    <div class="sidebar__add"><a href="{% url 'add_note' %}">Добавить запись</a></div>
+    <div class="sidebar__categories">
+        <div>Категории</div>
+        {% show_categories %}
+    </div>
 </div>
+
+
