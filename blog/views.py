@@ -1,7 +1,7 @@
 from msilib.schema import ListView
 from .models import Blog, Category
 from .forms import BlogForm
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 
 # Создавайте свои представления здесь.
@@ -11,7 +11,6 @@ class BlogView(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'blog'    # Имя, по которому мапятся данные в шаблоне через цикл for
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Все записи'
@@ -19,7 +18,7 @@ class BlogView(ListView):
 
 
     def get_queryset(self):
-        return Blog.objects.filter(is_published=True)
+        return Blog.objects.filter(is_published=True).select_related('category')    # Используется при ForeignKey в модели для сокращения SQL-запросов на странице
 
 
 class BlogCategory(ListView):
@@ -36,7 +35,7 @@ class BlogCategory(ListView):
 
 
     def get_queryset(self):
-        return Blog.objects.filter(category_id=self.kwargs['category_id'], is_published=True)
+        return Blog.objects.filter(category_id=self.kwargs['category_id'], is_published=True).select_related('category')
 
 
 class BlogDetailView(DetailView):
