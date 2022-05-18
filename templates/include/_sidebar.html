@@ -1,7 +1,9 @@
 {% load blog_tags %}
 
 <div>
+    {% if request.user.is_authenticated %}
     <div class="sidebar__add"><a href="{% url 'add_note' %}">Добавить запись</a></div>
+    {% endif %}
     <div class="sidebar__categories">
         <div>Категории</div>
         {% show_categories %}
