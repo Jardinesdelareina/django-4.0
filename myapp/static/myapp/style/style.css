@@ -70,6 +70,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
 
+.wrapper main content .alert__error, .wrapper main content .alert__success, .wrapper main content .alert__other {
+  padding: 10px;
+  margin: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
 form .button {
   text-decoration: none;
   display: inline-block;
@@ -226,6 +233,20 @@ html, body {
   font-weight: 700;
 }
 
+.wrapper header .auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  font-size: 18px;
+}
+
+.wrapper header .auth div {
+  padding: 10px;
+}
+
 .wrapper main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -285,6 +306,24 @@ html, body {
       -ms-flex: 0 1 80%;
           flex: 0 1 80%;
   margin: 0 auto;
+}
+
+.wrapper main content .alert__error {
+  color: brown;
+  -webkit-box-shadow: 0 0 10px brown;
+          box-shadow: 0 0 10px brown;
+}
+
+.wrapper main content .alert__success {
+  color: green;
+  -webkit-box-shadow: 0 0 10px green;
+          box-shadow: 0 0 10px green;
+}
+
+.wrapper main content .alert__other {
+  color: gray;
+  -webkit-box-shadow: 0 0 10px gray;
+          box-shadow: 0 0 10px gray;
 }
 
 .wrapper main content .paginator {
@@ -408,10 +447,6 @@ form .form__error {
   color: brown;
   padding: 5px;
   font-size: 15px;
-}
-
-form p {
-  text-align: center;
 }
 
 form .form__title {

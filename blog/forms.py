@@ -1,8 +1,10 @@
 from django import forms
-from .models import Category, Blog
-from django.forms import ModelForm, TextInput, Textarea, Select
+from .models import Blog
+from django.forms import ModelForm
 import re
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # Форма не связана с моделью
 
@@ -76,3 +78,14 @@ class BlogForm(ModelForm):
         if re.match(r'\d', text):
             raise ValidationError('Содержание записи не должно начинаться с цифры')
         return text
+
+
+class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'input'}))
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'input'}))
+    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input'}))
+    password2 = forms.CharField(label='Повторите пароль', widget=forms.PasswordInput(attrs={'class': 'input'}))
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']

@@ -27,5 +27,5 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CategoryAdmin)
 
-admin.site.site_title = 'Блог fueros'
+admin.site.site_title = 'Backend на Python'
 admin.site.site_header = 'Управление записями'

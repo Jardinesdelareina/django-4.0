@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация :: {{ block.super }}{% endblock %}
+
+{% block sidebar %}{% include 'include/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form__title">Регистрация</div>
+    <div class="form__input"><p>Логин</p><div>{{ form.username }}</div></div>
+    <div class="form__input"><p>Email</p><div>{{ form.email }}</div></div>
+    <div class="form__input"><p>Пароль</p><div>{{ form.password1 }}</div></div>
+    <div class="form__input"><p>Повторите пароль</p><div>{{ form.password2 }}</div></div>
+    <button class="button" type="submit">Зарегистрироваться</button>
+</form>
+{% endblock %}

@@ -1,9 +1,11 @@
+from django.shortcuts import redirect, render
 from .models import Blog, Category
-from .forms import BlogForm
+from .forms import BlogForm, UserRegisterForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .utils import HelloMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 # Создавайте свои представления здесь.
 
@@ -57,4 +59,24 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
     template_name = 'blog/add_note.html'
     success_url = reverse_lazy('home')   # Выполняет функцию redirect
     login_url = '/admin/'
-    
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid:
+            form.save()
+            messages.success(request, 'Регистрация успешно завершена')
+            return redirect('login')
+        else:
+            messages.error(request, 'Ошибка при регистрации')
+    else:
+        form = UserRegisterForm()    
+    context = {
+        'form': form
+    }
+    return render(request, 'blog/register.html', context)
+
+
+def login(request):
+    return render(request, 'blog/login.html')

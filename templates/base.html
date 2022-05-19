@@ -17,12 +17,11 @@
         <main>
             <nav>{% block sidebar %}{% endblock %}</nav>
             <content>
+                {% include 'include/_messages.html' %}
+
                 {% block content %}{% endblock %}
-                {% if page_obj.has_other_pages %}
-                <div class="paginator">
-                    {% include 'include/_paginator.html' %}
-                </div>
-                {% endif %}
+
+                {% include 'include/_paginator.html' %}
             </content>
         </main>
         <footer>

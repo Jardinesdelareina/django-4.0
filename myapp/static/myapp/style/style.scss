@@ -3,6 +3,13 @@
 $color__twitter: rgb(0, 172, 238);
 $color__purple: rgb(128, 0, 128);
 
+%alert {
+    padding: 10px;
+    margin: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
 %button {
     text-decoration: none;
     display: inline-block;
@@ -103,6 +110,14 @@ html, body {
             font-size: 20px;
             font-weight: 700;
         }
+        .auth {
+            display: flex;
+            justify-content: end;
+            font-size: 18px;
+            div {
+                padding: 10px;
+            }
+        }
     }
     main {
         display: flex;
@@ -144,6 +159,21 @@ html, body {
         content {
             flex: 0 1 80%;
             margin: 0 auto;
+            .alert__error {
+                @extend %alert;
+                color: brown;
+                box-shadow: 0 0 10px brown;
+            }
+            .alert__success {
+                @extend %alert;
+                color: green;
+                box-shadow: 0 0 10px green;
+            }
+            .alert__other {
+                @extend %alert;
+                color: gray;
+                box-shadow: 0 0 10px gray;
+            }
             .paginator {
                 display: flex;
                 justify-content: center;
@@ -227,9 +257,6 @@ form {
         color: brown;
         padding: 5px;
         font-size: 15px;
-    }
-    p {
-        text-align: center;
     }
     .form__title {
         font-size: 25px;
