@@ -16,7 +16,14 @@
         </header>
         <main>
             <nav>{% block sidebar %}{% endblock %}</nav>
-            <content>{% block content %}{% endblock %}</content>
+            <content>
+                {% block content %}{% endblock %}
+                {% if page_obj.has_other_pages %}
+                <div class="paginator">
+                    {% include 'include/_paginator.html' %}
+                </div>
+                {% endif %}
+            </content>
         </main>
         <footer>
             {% include 'include/_footer.html' %}

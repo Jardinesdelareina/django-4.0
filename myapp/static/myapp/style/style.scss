@@ -144,6 +144,22 @@ html, body {
         content {
             flex: 0 1 80%;
             margin: 0 auto;
+            .paginator {
+                display: flex;
+                justify-content: center;
+                font-size: 30px;
+                margin: 10px;
+                div {
+                    padding: 5px;
+                    box-shadow: 0 0 2px gray;
+                }
+                .paginatop__active {
+                    background-color: $color__purple;
+                    a {
+                        color: white;
+                    }
+                }
+            }
             h1 {
                 font-size: 30px;
                 margin: 20px;
