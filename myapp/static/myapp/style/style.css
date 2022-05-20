@@ -466,7 +466,7 @@ form .form__input {
 }
 
 form .form__input .input {
-  width: 500px;
+  width: 350px;
   margin: 10px;
 }
 
@@ -482,7 +482,7 @@ form .form__textarea {
 
 form .form__textarea .textarea {
   margin: 10px;
-  width: 500px;
+  width: 350px;
 }
 
 form .form__checkbox {

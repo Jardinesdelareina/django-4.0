@@ -64,7 +64,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             messages.success(request, 'Регистрация успешно завершена')
             return redirect('login')
@@ -80,3 +80,9 @@ def register(request):
 
 def login(request):
     return render(request, 'blog/login.html')
+
+
+''' class RegisterUser(CreateView):
+    form_class = UserRegisterForm
+    template_name = 'blog/register.html'
+    success_url = reverse_lazy('login') '''
