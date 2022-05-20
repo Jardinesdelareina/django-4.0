@@ -1,21 +1,22 @@
 from django.shortcuts import redirect, render
 from .models import Blog, Category
-from .forms import BlogForm, UserRegisterForm
+from .forms import BlogForm, UserRegisterForm, UserAuthForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
-from .utils import HelloMixin
+from .utils import UpperMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login, logout
 from django.contrib import messages
 
 # Создавайте свои представления здесь.
 
 
-class BlogView(HelloMixin, ListView):
+class BlogView(UpperMixin, ListView):
     model = Blog
     template_name = 'blog/index.html'
     context_object_name = 'blog'    # Имя, по которому мапятся данные в шаблоне через цикл for
     mixin_prop = 'добро пожаловать'
-    paginate_by = 2   # Пагинация, количество записей на странице     
+    paginate_by = 3   # Пагинация, количество записей на странице     
 
 
     def get_context_data(self, **kwargs):
@@ -29,7 +30,7 @@ class BlogView(HelloMixin, ListView):
         return Blog.objects.filter(is_published=True).select_related('category')    # Используется при ForeignKey в модели для сокращения SQL-запросов на странице
 
 
-class BlogCategory(HelloMixin, ListView):
+class BlogCategory(UpperMixin, ListView):
     model = Blog
     template_name = 'blog/index.html'
     context_object_name = 'blog'
@@ -65,9 +66,10 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            login(request, user)
             messages.success(request, 'Регистрация успешно завершена')
-            return redirect('login')
+            return redirect('home')
         else:
             messages.error(request, 'Ошибка при регистрации')
     else:
@@ -78,11 +80,21 @@ def register(request):
     return render(request, 'blog/register.html', context)
 
 
-def login(request):
-    return render(request, 'blog/login.html')
+def user_login(request):
+    if request.method == 'POST':
+        form = UserAuthForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserAuthForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'blog/login.html', context)
 
 
-''' class RegisterUser(CreateView):
-    form_class = UserRegisterForm
-    template_name = 'blog/register.html'
-    success_url = reverse_lazy('login') '''
+def user_logout(request):
+    logout(request)
+    return redirect('login')

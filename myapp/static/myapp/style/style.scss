@@ -267,7 +267,17 @@ form {
         display: flex;
         flex-direction: column;
         .input {
-            width: 350px;
+            width: 500px;
+            margin: 10px;
+            @extend %input
+        }
+    }
+    .form__auth {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        .input {
+            width: 300px;
             margin: 10px;
             @extend %input
         }
@@ -276,8 +286,8 @@ form {
         display: flex;
         flex-direction: column;
         .textarea{
+            width: 500px;
             margin: 10px;
-            width: 350px;
             @extend %textarea
         }
     }

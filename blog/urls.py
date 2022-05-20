@@ -7,5 +7,6 @@ urlpatterns = [
     path('notes/create/', BlogCreateView.as_view(), name='add_note'),
     path('notes/<int:pk>/', BlogDetailView.as_view(), name='view_note'),
     path('register/', register, name='register'),
-    path('login/', login, name='login'),
+    path('login/', user_login, name='login'),
+    path('logout/', user_logout, name='logout'),
 ]

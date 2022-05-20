@@ -1,7 +1,7 @@
 # Создавайте свои миксины здесь. 
 
 
-class HelloMixin(object):
+class UpperMixin(object):
     mixin_prop = ''
 
     def get_prop(self):
