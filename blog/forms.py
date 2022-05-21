@@ -94,3 +94,9 @@ class UserRegisterForm(UserCreationForm):
 class UserAuthForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'input'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'input'}))
+
+
+class ContactForm(forms.Form):
+    subj = forms.CharField(label='Тема письма', widget=forms.TextInput(attrs={'class': 'input'}))
+    text = forms.CharField(label='Содержание', widget=forms.Textarea(attrs={'class': 'textarea'}))
+    

@@ -1,7 +1,8 @@
 <a href="{% url 'home' %}"><span>Django 4.0</span></a>
 <div class="auth">
     {% if request.user.is_authenticated %}
-    <div>{{ mixin_prop }}, {{ user.username }}</div>
+    <div><a href="{% url 'feedback' %}">Обратная связь</a></div>
+    <div>{{ mixin_prop }} {{ user.username }}</div>
     <div><a href="{% url 'logout' %}">Выход</a></div>
     {% else %}
     <div><a href="{% url 'register' %}">Регистрация</a></div>

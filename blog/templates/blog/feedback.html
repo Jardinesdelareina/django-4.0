@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Обратная связь :: {{ block.super }}{% endblock %}
+
+{% block sidebar %}{% include 'include/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form__title">Форма обратной связи</div>
+    <div class="form__input"><p>Тема письма</p><div>{{ form.subj }}</div></div>
+    <div class="form__textarea"><p>Содержание</p><div>{{ form.text }}</div></div>
+    <button class="button" type="submit">Отправить</button>
+</form>
+{% endblock %}

@@ -1,12 +1,13 @@
 from django.shortcuts import redirect, render
 from .models import Blog, Category
-from .forms import BlogForm, UserRegisterForm, UserAuthForm
+from .forms import BlogForm, UserRegisterForm, UserAuthForm, ContactForm
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .utils import UpperMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from django.core.mail import send_mail
 
 # Создавайте свои представления здесь.
 
@@ -98,3 +99,27 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+
+def feedback(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            mail = send_mail(
+                form.cleaned_data['subj'],
+                form.cleaned_data['text'],
+                'django-project1@mail.ru',  # Адрес отправителя  
+                ['test-adress@mail.ru'],    # Адрес получателя
+                fail_silently=True
+            )
+            if mail:
+                messages.success(request, 'Ваше сообщение успешно отправлено')
+                return redirect('feedback')
+            else:
+                messages.error(request, 'Ошибка при отправке сообщения')
+    else:
+        form = ContactForm()    
+    context = {
+        'form': form
+    }
+    return render(request, 'blog/feedback.html', context)
