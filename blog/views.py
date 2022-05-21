@@ -117,6 +117,8 @@ def feedback(request):
                 return redirect('feedback')
             else:
                 messages.error(request, 'Ошибка при отправке сообщения')
+        else:
+            messages.error(request, 'Не правильно введены символы с изображения')
     else:
         form = ContactForm()    
     context = {

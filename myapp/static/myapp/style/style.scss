@@ -307,6 +307,15 @@ form {
             margin-left: 10px;
         } 
     }
+    .form__captcha {
+        display: flex;
+        align-items: center;
+        .captcha {
+            margin: 10px;
+            box-shadow: 0 0 5px gray;
+            font-size: 30px;
+        }
+    }
     .button {
         @extend %button
     }

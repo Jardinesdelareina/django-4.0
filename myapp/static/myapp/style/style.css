@@ -528,3 +528,19 @@ form .form__select {
 form .form__select .select {
   margin-left: 10px;
 }
+
+form .form__captcha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .form__captcha .captcha {
+  margin: 10px;
+  -webkit-box-shadow: 0 0 5px gray;
+          box-shadow: 0 0 5px gray;
+  font-size: 30px;
+}

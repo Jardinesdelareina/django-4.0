@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
+    'captcha',
     'blog.apps.BlogConfig',
 ]
 
@@ -155,3 +156,10 @@ EMAIL_USE_SSL = True
 # Загрузка файлов пользователями через ckeditor
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+
+# Параметры капчи
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'  # Математические примеры
+CAPTCHA_NOISE_FUNCTIONS = None  # Шум
+CAPTCHA_LETTER_ROTATION = None  # Наклон символов

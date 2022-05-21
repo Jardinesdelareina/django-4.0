@@ -13,6 +13,7 @@
     1. Импортируйте функцию include(): из django.urls import include, path
     2. Добавьте URL-адрес в urlpatterns: path('blog/', include('blog.urls'))
 """
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -22,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('captcha', include('captcha.urls')),
 ]
 
 if settings.DEBUG:
