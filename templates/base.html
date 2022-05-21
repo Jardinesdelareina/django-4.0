@@ -15,7 +15,9 @@
             {% include 'include/_header.html' %}
         </header>
         <main>
-            <nav>{% block sidebar %}{% endblock %}</nav>
+            <nav>
+                {% block sidebar %}{% endblock %}
+            </nav>
             <content>
                 {% include 'include/_messages.html' %}
 

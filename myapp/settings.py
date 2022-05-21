@@ -163,3 +163,17 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'  # Математические примеры
 CAPTCHA_NOISE_FUNCTIONS = None  # Шум
 CAPTCHA_LETTER_ROTATION = None  # Наклон символов
+
+
+# Кэширование
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
+        'TIMEOUT': 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
