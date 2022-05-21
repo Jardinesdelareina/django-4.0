@@ -17,7 +17,7 @@ class BlogView(UpperMixin, ListView):
     template_name = 'blog/index.html'
     context_object_name = 'blog'    # Имя, по которому мапятся данные в шаблоне через цикл for
     mixin_prop = 'добро пожаловать'
-    paginate_by = 3   # Пагинация, количество записей на странице     
+    paginate_by = 5   # Пагинация, количество записей на странице     
 
 
     def get_context_data(self, **kwargs):
@@ -36,7 +36,7 @@ class BlogCategory(UpperMixin, ListView):
     template_name = 'blog/index.html'
     context_object_name = 'blog'
     allow_empty = False
-    paginate_by = 2
+    paginate_by = 5
 
 
     def get_context_data(self, **kwargs):

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'ckeditor',
+    'ckeditor_uploader',
     'blog.apps.BlogConfig',
 ]
 
@@ -148,3 +150,8 @@ EMAIL_HOST_USER = 'django-project1@mail.ru'
 EMAIL_HOST_PASSWORD = 'w7aSs1MvtqJWTqxQNgdk'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+
+# Загрузка файлов пользователями через ckeditor
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'

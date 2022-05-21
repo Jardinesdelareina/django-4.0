@@ -1,10 +1,20 @@
+from django import forms
 from django.contrib import admin
 from .models import Blog, Category
 from django.utils.safestring import mark_safe
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 # Зарегистрируйте свои модели здесь.
 
+class BlogAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Blog
+        fields = '__all__'
+
+
 class BlogAdmin(admin.ModelAdmin):
+    form = BlogAdminForm
     list_display = ('id', 'category', 'title', 'is_published', 'get_image', 'created_at', 'updated_at')
     list_display_links = ('id', 'title')
     list_editable = ('is_published',)
@@ -19,10 +29,12 @@ class BlogAdmin(admin.ModelAdmin):
 
     get_image.short_description = 'Миниатюра'
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
+
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CategoryAdmin)

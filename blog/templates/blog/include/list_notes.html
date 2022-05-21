@@ -8,7 +8,7 @@
     <div class="note__content">
         <div class="note__title">{{ note.title }}</div>
         <div class="note__category">Категория: <a href="{{ note.category.get_absolute_url }}">{{ note.category}}</a></div>
-        <div class="note__text">{{ note.text }}</div>
+        <div class="note__text">{{ note.text|safe|truncatewords:50 }}</div>
         <div class="note__date">{{ note.created_at|date:"d-m-Y H:i" }}</div>
         <a href="{{ note.get_absolute_url }}">ЧИТАТЬ</a>
     </div>
