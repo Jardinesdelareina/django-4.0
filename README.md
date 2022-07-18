@@ -3,7 +3,7 @@
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 
-### PY-Venv
+### venv
 
 1.  Создание виртуального окружения
 >python -m venv venv
@@ -18,7 +18,7 @@
 3.  Деактивация виртуального окружения
 >deactivate
 
-### PY-Django
+### Django
 
 1.  Загрузка Django
 >pip install django
