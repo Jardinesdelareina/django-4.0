@@ -57,6 +57,3 @@ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
 
 * Капча
 >pip install django-simple-captcha
-
-###### Обучающие материалы
-[Django полный курс 2021](https://www.youtube.com/playlist?list=PLmC7X4gkQWCeyIdLxHZdts-3tkcrxP4-o)
